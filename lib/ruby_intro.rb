@@ -26,6 +26,7 @@ end
 
 def sum_to_n? arr, n
   if arr.length > 0 
+    # m represents the numbers, here x and y, that adds upto n
     m = arr.combination(2).find{|x,y| x + y == n}
     m != nil
   else
@@ -62,11 +63,11 @@ end
 class BookInStock
   attr_accessor :isbn, :price
   
-  def initialize(is, pr)
-    pr = pr.to_f
-    if is.length != 0 && pr > 0
-      @isbn = is
-      @price = pr
+  def initialize(isbn, price)
+    price = price.to_f
+    if isbn.length != 0 && price > 0
+      @isbn = isbn
+      @price = price
     else
       raise ArgumentError.new("Incorrect argument")
     end
